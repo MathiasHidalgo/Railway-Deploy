@@ -7,8 +7,8 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.get('/', (req, res) => {
-    const result = pool.query(`SELECT "Hello world" as RESULT`);
+app.get('/ping', async (req, res) => {
+    const result = await pool.query(`SELECT "Hello world" as RESULT`);
     console.log(result)
     res.send('Hello World!')
 })
