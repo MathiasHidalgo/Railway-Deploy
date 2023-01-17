@@ -3,14 +3,20 @@ import { pool } from './db.js'
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
+app.get('/', async (req, res) => {
+    const [rows] = await pool.query('SELECT * FROM users')
+    res.json(rows)
 })
 
 app.get('/ping', async (req, res) => {
-    const result = await pool.query(`SELECT "Hello world" as RESULT`);
-    console.log(result)
-    res.send('Hello World!')
+    const [result] = await pool.query(`SELECT "Hello world" as RESULT`);
+    res.json(result[0])
+    res.send('')
+})
+
+app.get('/create', async (req, res) => {
+    const result = await pool.query('INSERT INTO users(name) VALUES ("John")')
+    res.json(result)
 })
 
 app.listen(3000)
