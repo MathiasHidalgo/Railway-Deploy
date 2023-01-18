@@ -2,6 +2,8 @@
 import express from 'express'
 // importing the promise of db.js 
 import { pool } from './db.js'
+//IMPORTING THE PORT 
+import { PORT } from './config.js'
 
 //init of express in app to use his functions 
 const app = express()
@@ -25,6 +27,6 @@ app.get('/create', async (req, res) => {
     res.json(result)
 })
 
-app.listen(3000) //Running the server on port 3000
-console.log('Server on port 3000')
+app.listen(PORT) //Running the server on port 3000
+console.log('Server on port', PORT)
 
