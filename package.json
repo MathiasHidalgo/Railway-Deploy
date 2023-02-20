@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev" : "nodemon server/server.js",
-    "start" : "node server/server.js" 
+    "debug": "node --inspect server/server.js",
+    "dev": "nodemon server/server.js"
+
   },
   "keywords": [],
   "author": "",
